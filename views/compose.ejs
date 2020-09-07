@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<h1>Compose</h1>
+<!--in order to make a post request to our server we use the <form>, when we submit a form we can pass over the value that the user
+    typed into this input over to our app.js-->
+<form class="" action="/compose" method="post">
+    <!--Используем форму и метод post, чтобы передать инфу из input, The action contains 
+the rout that you are going to handle inside your app.js. We post to the /compose route.-->
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" id="title" type="text" name="postTitle">
+        <!--Добавим свойство bootstrap: class="form-control"-->
+
+
+        <label for="post">Post</label>
+        <textarea class="form-control" id="post" name="postMessage" rows="5" cols="30"></textarea>
+        <!--multyline text input-->
+
+        <label for="password">Password</label>
+        <input class="form-control mx-sm-3" id="password" type="password" name="postPassword">
+
+    </div>
+    <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    <!--The button has the type "submit" so that when we click it submits the data
+that is inside the form to whichever action is specified here. We are using the bootstrap here: class="btn btn-primary"-->
+
+
+</form>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,34 @@
+<!--Добавим ejs Layot к нашему сайту https://ejs.co/#install-->
+<%- include("partials/header") -%>
+
+<h1>Home</h1>
+<p><%= startingContent %></p>
+
+<!--Здесь мы используем цикл, чтобы бежать по массиву posts, который имеет ключ postsObject. А массив posts заполняется объектами 
+postObject, содержащими свойства (keys) title и message, в эти свойства прилетает инфа из формы, находящейся на compose.ejs.
+Or we can use instead of for loop the method array.forEach()-->
+<!--
+<for (var i = 0; i < postsObject.length; i++) { 
+    console.log(postsObject[i].title); 
+<} 
+
+-->
+
+<!--Используем метод foreEach() для нашего массива posts (ключ postsObject), все введенное в инпут из compose.ejs печатаем на странице "/"-->
+<% postsObject.forEach(function(currentValue) { %>
+<h1><%= currentValue.title %></h1>
+
+<!--Добавим substring(), чтобы обрезать наше сообщение, которое мы печатаем в "/compose" и публикуем на "/". Чтобы сообщение 
+не было очень длинным, обрежем его и поставим троеточие в конце. В ссылку подставляем id из нашего массива postsObjects, чтобы
+по id найти именно тот элемент, на который мы жмем read me.-->
+<p><%= currentValue.message.substring(0, 100) + "..." %><a href ="/post/<%= currentValue._id %>" > Read More</a> </p> 
+
+
+
+<% }); %>
+
+
+
+
+<!--Добавим ejs Layot к нашему сайту https://ejs.co/#install-->
+<%- include partials/footer.ejs -%>
